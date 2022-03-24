@@ -1,8 +1,15 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import { MediumAuthorDataService } from './services/MediumAuthorDataService';
 
 function App() {
+
+  useEffect(() => {
+    const service = new MediumAuthorDataService();
+    service.fetchAuthorData().then((x) => console.log(x));
+  }, [])
+  
   return (
     <div className="App">
       <header className="App-header">
