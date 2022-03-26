@@ -16,4 +16,32 @@ export class Author {
         public readonly totalPostsReadingTime: number,
         public readonly posts: Post[],
     ) {}
+
+    get clapsPerPost(): number {
+        return this.roundToTwo(this.totalClaps / this.posts.length)
+    }
+
+    get clapsPerFollower(): number {
+        return this.roundToTwo(this.totalClaps / this.followers);
+    }
+
+    get responsesPerPost(): number {
+        return this.roundToTwo(this.totalResponses / this.posts.length)
+    }
+
+    get responsesPerFollower(): number {
+        return this.roundToTwo(this.totalResponses / this.followers);
+    }
+
+    get clappersPerPost(): number {
+        return this.roundToTwo(this.totalClappers / this.posts.length)
+    }
+
+    get clappersPerFollower(): number {
+        return this.roundToTwo(this.totalClappers / this.followers);
+    }
+
+    private roundToTwo(num: number): number {    
+        return Math.round( num * 100 + Number.EPSILON ) / 100
+    }
 }

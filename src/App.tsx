@@ -1,33 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { MediumAuthorDataService } from './services/MediumAuthorDataService';
+import './style/App.css';
+import { Author } from './types/Author';
+import { ContentView } from './views/Content';
+import { ErrorView } from './views/Error';
+import { InitialView } from './views/Initial';
+import { LoadingView } from './views/Loading';
+import { NoPostsView } from './views/NoPosts';
 
-function App() {
+enum View{
+  Loading,
+  NoPost,
+  Initial,
+  Content,
+  Error
+}
 
-  useEffect(() => {
-    const service = new MediumAuthorDataService();
-    service.fetchAuthorData().then((x) => console.log(x));
-  }, [])
-  
+function App() {  
+  const [author, setAuthor] = useState<Author>();
+  const [postsLoaded, setPostsLoaded] = useState<number>(0);
+  const [view, setView] = useState<View>(View.Initial);
+
+  const service = new MediumAuthorDataService();
+
+  const loadData = async () => {
+    setView(View.Loading);
+    try {
+      const authorData = await service.fetchAuthorData(setPostsLoaded);
+      
+      if (!authorData) {
+        setView(View.NoPost);
+        return;
+      }
+
+      setAuthor(authorData);
+      setView(View.Content);
+    } catch(e) {
+      console.log(e);
+      setView(View.Error);
+    }
+  }
+
+  const renderView = () => {
+    switch(view) {
+      case View.Content:
+        return <ContentView author={author!} />
+      case View.Loading:
+        return <LoadingView postsLoaded={postsLoaded} />
+      case View.NoPost:
+        return <NoPostsView />
+      case View.Error:
+        return <ErrorView />
+      default:
+        return <InitialView loadData={loadData} />
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="app">
+        {renderView()}
+      </div>
+    );
 }
 
 export default App;

@@ -13,6 +13,9 @@
       "default_popup": "index.html",
       "default_title": "Open Medium Any Authors Stats"
   },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+  },
   "icons": {
       "16": "logo192.png",
       "48": "logo192.png",

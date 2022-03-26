@@ -9,7 +9,7 @@ export class MediumAuthorDataService {
     private readonly MAX_POSTS_CALLS = 100;
     private readonly MEDIUM_URL = "https://medium.com/_/graphql";
 
-    async fetchAuthorData(): Promise<Author | null> {
+    async fetchAuthorData(setPostsLoaded: Function): Promise<Author | null> {
         if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
             return new Author(
                 "121312",
@@ -33,13 +33,13 @@ export class MediumAuthorDataService {
                 ]
             );
         }
-        const posts = await this.getAllPosts();
+        const posts = await this.getAllPosts(setPostsLoaded);
         if (posts.length === 0) return null;
         const mapper = new PostsToAuthorDataMapper();
         return mapper.map(posts);
     }
 
-    async getAllPosts(): Promise<PostDto[]> {
+    async getAllPosts(setPostsLoaded: Function): Promise<PostDto[]> {
         let startFromPost;
         let iter = 0;
         let posts: PostDto[] = [];
@@ -47,6 +47,7 @@ export class MediumAuthorDataService {
             iter += 1;
             const homepagePostsConnectionDto: HomepagePostsConnectionDto = await this.getPostsPage(startFromPost);
             posts = posts.concat(homepagePostsConnectionDto.posts);
+            setPostsLoaded(posts.length);
             startFromPost = homepagePostsConnectionDto.pagingInfo?.next?.from;
         } while(startFromPost != null || this.MAX_POSTS_CALLS < iter);
 
