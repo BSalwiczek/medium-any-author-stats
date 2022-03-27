@@ -15,7 +15,7 @@ export function InitialView(props: InitialProps) {
                 </Typography>
                 <br />
                 <Typography style={{ width: "400px", textAlign: "center" }}>
-                    Visit any <Link color="inherit" href="https://medium.com/@bsalwiczek">author's home page</Link> on 
+                    Visit any <Link color="inherit" target="_blank" href="https://medium.com/@bsalwiczek">author's home page</Link> on 
                     Medium and click a button to see their detailed statistics
                 </Typography>
                 <br />

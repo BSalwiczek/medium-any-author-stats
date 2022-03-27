@@ -1,9 +1,9 @@
 /*global chrome*/
 function getUsername() {
-    return document.querySelector("link[id=feedLink]").getAttribute("href").split("/").at(-1);
+    return document.querySelector("link[id=feedLink]")?.getAttribute("href")?.split("/")?.at(-1);
 }
 
-function getMediumData(url, startFromPost, maxPaginationLimit) {
+function getMediumData(username, url, startFromPost, maxPaginationLimit) {
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -24,13 +24,10 @@ function getMediumData(url, startFromPost, maxPaginationLimit) {
         .then((content) => content.json());
 }
 
-const username = getUsername();
-getMediumData("https://medium.com/_/graphql", username, null, 25).then((data) => console.log(data));
-
-
 chrome.runtime.onMessage.addListener(
     (request, sender, sendResponse) => {
-        getMediumData(request.url, request.startFromPost, request.maxPaginationLimit)
+        const username = getUsername();
+        getMediumData(username, request.url, request.startFromPost, request.maxPaginationLimit)
         .then((response) => sendResponse(response));
         return true;
     }

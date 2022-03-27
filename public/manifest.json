@@ -1,7 +1,7 @@
 {
   "name": "Medium Any Author Stats",
-  "description": "The statistics of any Medium author.",
-  "version": "1.0",
+  "description": "The statistics of any Medium author. Enter Medium author's page and click a button to see their detailed statistics!",
+  "version": "0.0.1",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -13,12 +13,10 @@
       "default_popup": "index.html",
       "default_title": "Open Medium Any Authors Stats"
   },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
-  },
   "icons": {
-      "16": "logo192.png",
-      "48": "logo192.png",
-      "128": "logo192.png"
+      "16": "icons/logo16.png",
+      "32": "icons/logo32.png",
+      "48": "icons/logo48.png",
+      "128": "icons/logo128.png"
   }
 }
