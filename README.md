@@ -1,4 +1,3 @@
-# Medium Any Author Stats
 ![image](https://user-images.githubusercontent.com/23345906/161488145-fca7dc0e-ecc7-4d80-b825-553496884b9c.png)
 
 [Link to chrome web store](https://chrome.google.com/webstore/detail/medium-any-author-stats/ahepaemleacieeongldddhambknoomof)
