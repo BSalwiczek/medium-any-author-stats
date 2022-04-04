@@ -14,7 +14,7 @@ The extension will show you information about:
 
 ## Tutorial
 I've written step-by-step tutorial on how I've build this extension. You can check it out here: 
-[https://medium.com/p/d0401149e3a2](https://medium.com/p/d0401149e3a2)
+[https://medium.com/@bsalwiczek/how-to-develop-react-chrome-extension-for-medium-in-26-steps-d0401149e3a2](https://medium.com/@bsalwiczek/how-to-develop-react-chrome-extension-for-medium-in-26-steps-d0401149e3a2)
 
 ## Install
 To run build and run this extension in chrome you need to:
