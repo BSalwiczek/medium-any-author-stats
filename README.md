@@ -1,5 +1,5 @@
 # Medium Any Author Stats
-![image](https://user-images.githubusercontent.com/23345906/161487935-adf108be-701f-4b35-9121-39945a132e08.png)
+![image](https://user-images.githubusercontent.com/23345906/161488145-fca7dc0e-ecc7-4d80-b825-553496884b9c.png)
 
 [Link to chrome web store](https://chrome.google.com/webstore/detail/medium-any-author-stats/ahepaemleacieeongldddhambknoomof)
 
