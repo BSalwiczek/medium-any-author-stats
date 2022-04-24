@@ -1,7 +1,7 @@
 {
   "name": "Medium Any Author Stats",
   "description": "The statistics of any Medium author. Enter Medium author's page and click a button to see their detailed statistics!",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
   "content_scripts": [
     {
