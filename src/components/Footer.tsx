@@ -12,7 +12,7 @@ export function Footer() {
             } />
             <Chip variant="outlined" label={
             <Typography fontSize={12} >Made by Bartosz Salwiczek 
-            (<Link href="https://medium.com/@bsalwiczek" target="_blank" color="inherit">check out step-by-step article</Link>)
+            (<Link href="https://medium.com/@bsalwiczek/how-to-develop-react-chrome-extension-for-medium-in-26-steps-d0401149e3a2" target="_blank" color="inherit">check out step-by-step article</Link>)
             </Typography>
             } />
         </Grid>

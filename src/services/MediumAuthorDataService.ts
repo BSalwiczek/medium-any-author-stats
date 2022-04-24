@@ -49,7 +49,7 @@ export class MediumAuthorDataService {
             posts = posts.concat(homepagePostsConnectionDto.posts);
             setPostsLoaded(posts.length);
             startFromPost = homepagePostsConnectionDto.pagingInfo?.next?.from;
-        } while(startFromPost != null || this.MAX_POSTS_CALLS < iter);
+        } while(startFromPost != null && this.MAX_POSTS_CALLS > iter);
 
         return posts;
     }
