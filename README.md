@@ -1,4 +1,4 @@
-# Medium Any Author Stats
+![image](https://user-images.githubusercontent.com/23345906/161488145-fca7dc0e-ecc7-4d80-b825-553496884b9c.png)
 
 [Link to chrome web store](https://chrome.google.com/webstore/detail/medium-any-author-stats/ahepaemleacieeongldddhambknoomof)
 
@@ -14,7 +14,7 @@ The extension will show you information about:
 
 ## Tutorial
 I've written step-by-step tutorial on how I've build this extension. You can check it out here: 
-[https://medium.com/p/d0401149e3a2](https://medium.com/p/d0401149e3a2)
+[https://medium.com/@bsalwiczek/how-to-develop-react-chrome-extension-for-medium-in-26-steps-d0401149e3a2](https://medium.com/@bsalwiczek/how-to-develop-react-chrome-extension-for-medium-in-26-steps-d0401149e3a2)
 
 ## Install
 To run build and run this extension in chrome you need to:
